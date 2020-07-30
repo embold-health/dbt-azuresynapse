@@ -1,0 +1,3 @@
+[submodule "dbt-integration-tests"]
+	path = dbt-integration-tests
+	url = https://github.com/fishtown-analytics/dbt-integration-tests.git

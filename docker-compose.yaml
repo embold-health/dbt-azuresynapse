@@ -1,0 +1,9 @@
+version: "3"
+services:
+  dbt:
+    build:
+      context: .
+    volumes:
+      - ./profiles.yml:/root/.dbt/profiles.yml
+      - ./dbt:/src/dbt
+      - ./dbt-integration-tests:/tests

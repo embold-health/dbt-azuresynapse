@@ -1,0 +1,25 @@
+repos:
+  - repo: https://github.com/asottile/reorder_python_imports
+    rev: v2.2.0
+    hooks:
+      - id: reorder-python-imports
+        args:
+          - "--application-directories=src"
+  - repo: https://github.com/psf/black
+    rev: stable
+    hooks:
+      - id: black
+        language_version: python3.7
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: flake8
+        additional_dependencies:
+          - toml
+      - id: fix-encoding-pragma
+        args: [--remove] # No longer needed in python3 codebases
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md] # Keep hardbreaks in markdown files

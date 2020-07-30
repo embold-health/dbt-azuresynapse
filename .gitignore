@@ -1,0 +1,23 @@
+# Compiled python modules.
+*.pyc
+.idea
+# Setuptools distribution folder.
+/dist/
+/build/
+
+# Python egg metadata, regenerated from source files by setuptools.
+/*.egg-info
+env/
+venv/
+
+## editor files
+*.swp
+.vscode/
+*.code-workspace
+
+## dbt files
+profiles.yml
+
+# env files
+.env
+env.list
