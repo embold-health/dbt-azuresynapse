@@ -39,6 +39,7 @@ The included Dockerfile and docker-compose.yml should provide a quick developmen
 
 * Clone the repo `git clone --recurse-submodules git@github.com:embold-health/dbt-azuresynapse.git`
     * If you've already cloned without the submodule, run `git submodule init && git submodule update`
+* Run `pre-commit install`. This will install git hooks that handle formatting on commit.
 * Setup profiles.yml in the top-level of the directory
 * Run `docker-compose build`
 * `docker-compose run dbt /bin/bash` will get you a shell into the container
