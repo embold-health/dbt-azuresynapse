@@ -16,13 +16,11 @@ except Exception:
 package_name = "dbt-azuresynapse"
 python_min_version = "3.6.3"
 description = """The azuresynapse adapter plugin for dbt (data build tool)"""
-with open("README.md", "r") as f:
-    long_description = f.read()
 
 setup(
     name=package_name,
     description=description,
-    long_description=long_description,
+    long_description=description,
     version=version,
     author="Embold Health",
     author_email="techteam@emboldhealth.com",
