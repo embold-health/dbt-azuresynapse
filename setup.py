@@ -3,19 +3,30 @@ from distutils.core import setup
 
 from setuptools import find_packages
 
+try:
+    import setuptools_scm
+
+    version = setuptools_scm.get_version()
+except Exception:
+    import warnings
+
+    warnings.warn(f"could not determine {__name__} package version")
+    version = "0.0.0"
+
 package_name = "dbt-azuresynapse"
-package_version = "0.0.1"
-description = """The azuresynapse adapter plugin for dbt (data build tool)"""
 python_min_version = "3.6.3"
+description = """The azuresynapse adapter plugin for dbt (data build tool)"""
+with open("README.md", "r") as f:
+    long_description = f.read()
 
 setup(
     name=package_name,
-    version=package_version,
     description=description,
-    long_description=description,
+    long_description=long_description,
+    version=version,
     author="Embold Health",
     author_email="techteam@emboldhealth.com",
-    url="https://www.emboldhealth.com",
+    url="https://github.com/embold-health/dbt-azuresynapse",
     packages=find_packages(exclude=["dbt-integration-tests"]),
     package_data={
         "dbt": [
