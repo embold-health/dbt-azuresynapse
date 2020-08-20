@@ -32,6 +32,6 @@ setup(
             "include/azuresynapse/macros/*.sql",
         ]
     },
-    install_requires=["dbt-core==0.17.1", "pyodbc==4.0.30"],
+    install_requires=["dbt-core>=0.17.2", "pyodbc==4.0.30"],
     python_requires=">{}".format(python_min_version),
 )
