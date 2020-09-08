@@ -151,7 +151,7 @@
 {%- endmacro %}
 
 {% macro azuresynapse__snapshot_string_as_time(timestamp) -%}
-    {%- set result = "CAST('" ~ timestamp ~ "' AS DATETIME)" -%}
+    {%- set result = "CAST('" ~ timestamp ~ "' AS DATETIME2(7))" -%}
     {{ return(result) }}
 {%- endmacro %}
 
