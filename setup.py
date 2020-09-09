@@ -30,6 +30,7 @@ setup(
         "dbt": [
             "include/azuresynapse/dbt_project.yml",
             "include/azuresynapse/macros/*.sql",
+            "include/azuresynapse/macros/materializations/**/*.sql"
         ]
     },
     install_requires=["dbt-core>=0.17.2", "pyodbc==4.0.30"],
