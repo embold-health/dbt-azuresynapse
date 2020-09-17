@@ -1,4 +1,4 @@
-{% macro azuresynapse__snapshot_check_strategy(node, snapshotted_rel, current_rel, config, target_exists) %}
+{% macro snapshot_check_strategy(node, snapshotted_rel, current_rel, config, target_exists) %}
     {% set check_cols_config = config['check_cols'] %}
     {% set primary_key = config['unique_key'] %}
     {% set select_current_time -%}
