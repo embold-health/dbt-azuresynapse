@@ -151,7 +151,7 @@
 {%- endmacro %}
 
 {% macro azuresynapse__snapshot_string_as_time(timestamp) -%}
-    {%- set result = "CAST('" ~ timestamp ~ "' AS DATETIME)" -%}
+    {%- set result = "CAST('" ~ timestamp ~ "' AS DATETIME2(7))" -%}
     {{ return(result) }}
 {%- endmacro %}
 
@@ -161,3 +161,13 @@
   {%- endfor -%}
   ))
 {%- endmacro %}
+
+{% macro azuresynapse__get_columns_in_query(select_sql) %}
+    {% call statement('get_columns_in_query', fetch_result=True, auto_begin=False) -%}
+        select top 0 * from (
+            {{ select_sql }}
+        ) as __dbt_sbq
+    {% endcall %}
+
+    {{ return(load_result('get_columns_in_query').table.columns | map(attribute='name') | list) }}
+{% endmacro %}
