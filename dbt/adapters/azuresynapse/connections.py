@@ -29,9 +29,11 @@ class AzureSynapseCredentials(Credentials):
     server: str
     database: str
     schema: str
+    authentication: AuthenticationType
     username: Optional[str]
     password: Optional[str]
-    authentication: AuthenticationType
+    trustServerCertificate: Optional[bool] = False
+    encrypt: Optional[bool] = True
 
     _ALIASES = {
         "UID": "username",
@@ -49,6 +51,8 @@ class AzureSynapseCredentials(Credentials):
         parts.append(f"DRIVER={{{self.driver}}}")
         parts.append(f"SERVER={self.server}")
         parts.append(f"Database={self.database}")
+        parts.append("TrustServerCertificate={}".format('yes' if self.trustServerCertificate else 'no'))
+        parts.append("Encrypt={}".format('yes' if self.encrypt else 'no'))
 
         if self.authentication == AuthenticationType.TrustedConnection:
             parts.append("trusted_connection=yes")
